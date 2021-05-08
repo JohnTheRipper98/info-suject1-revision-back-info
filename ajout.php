@@ -14,7 +14,7 @@ $res1 = mysql_query($req1);
 if(mysql_num_rows($res1) > 0){
 	echo 'Eléve existe déja!';
 }else{
-	$req2 = "insert into eleve (nume,nome,emaile,sexe,ville) values ('$numero','$nom','$email','$sexe','$ville')";
+	$req2 = "insert into eleve (nume,nome,emaile,sexee,villee) values ('$numero','$nom','$email','$sexe','$ville')";
 	$res2 = mysql_query($req2);
 	if(mysql_affected_rows() > 0){
 		echo 'Eléve ajouté avec succés!';
