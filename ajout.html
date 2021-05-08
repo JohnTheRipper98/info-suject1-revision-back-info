@@ -1,0 +1,118 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Ajout</title>
+<script language=javascript >
+
+function verif(){
+
+	numero = f.T1.value;
+	nom = f.T2.value;
+	email = f.T3.value;
+	sexe = f.R1.value;
+	ville = f.D1.value;
+	// verif numero
+	if(numero.length != 4 || !chiffres(numero.substr(1)) || !chaine(numero.charAt(0)) || numero.charAt(0) != 'E'){
+		alert('Numéro invalid!');
+		return false;
+	}
+	//verif nom
+	if(nom == '' || !chaine(nom)){
+		alert('Nom invalid!');
+		return false;
+	}
+	//Verif addresse Email
+	if(email.indexOf('@') == -1 || email.indexOf('.') == -1 || email.indexOf('@') > email.indexOf('.')){
+		alert('Email invalid!');
+		return false;
+	}
+	//verif sexe
+	if(sexe == ''){
+		alert('Sexe invalid!');
+		return false;
+	}
+	
+	//verif ville
+	if(ville  == '' || ville  == 'Choisir une ville natale'){
+		alert('Ville invalid!');
+		return false;
+	}
+	
+	return true;
+}
+
+function chaine(ch){
+  test = true;
+  ch = ch.toUpperCase();
+  for(i = 0;i<ch.length;i++){
+ 	if(ch.charAt(i) < 'A' || ch.charAt(i) > 'Z'){
+ 		test  = false;
+ 	}
+  }
+  
+  return test;
+}
+
+function chiffres(ch){
+  test = true;
+
+  for(i = 0;i<ch.length;i++){
+ 	if(ch.charAt(i) < '0' || ch.charAt(i) > '9'){
+ 		test  = false;
+ 	}
+  }
+  
+  return test;
+}
+
+
+</script>
+</head>
+
+<body>
+
+<form method="POST" name=f onsubmit="return verif();" action="ajout.php">
+	<fieldset style="padding: 2">
+	<legend><b><font size="6">Ajouter</font><font size="6"> un éléve</font></b></legend>
+	.<table border="0" width="501" height="249">
+		<!-- MSTableType="nolayout" -->
+		<tr>
+			<td height="50" width="114"><b><font size="5">Numéro:</font></b></td>
+			<td height="50" width="371"><input type="text" name="T1" size="31"></td>
+		</tr>
+		<tr>
+			<td height="37" width="114"><b><font size="5">Nom:</font></b></td>
+			<td height="37" width="371"><input type="text" name="T2" size="31"></td>
+		</tr>
+		<tr>
+			<td height="43" width="114"><b><font size="5">Email:</font></b></td>
+			<td height="43" width="371">
+			<p align="left"><input type="text" name="T3" size="31"></td>
+		</tr>
+		<tr>
+			<td height="51" width="114"><b><font size="5">Sexe:</font></b></td>
+			<td height="51" width="371">
+			<input type="radio" value="F" name="R1">F&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			G<input type="radio" name="R1" value="H"></td>
+		</tr>
+		<tr>
+			<td height="54" width="114"><b><font size="5">Ville:</font></b></td>
+			<td height="54" width="371"><select size="1" name="D1">
+			<option>Choisir une ville natale</option>
+			<option>Ariana</option>
+			<option>Ben Arous</option>
+			<option>Manouba</option>
+			<option>Tunis</option>
+			</select></td>
+		</tr>
+	</table>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Ajouter" name="B1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="reset" value="Effacer" name="B2"></p>
+	</fieldset></form>
+
+</body>
+
+</html>

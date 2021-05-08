@@ -1,0 +1,68 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<title>Supprimer</title>
+<script language=javascript>
+
+function verif(){
+
+	numero = f.T1.value;
+
+	// verif numero
+	if(numero.length != 4 || !chiffres(numero.substr(1)) || !chaine(numero.charAt(0)) || numero.charAt(0) != 'E'){
+		alert('Numéro invalid!');
+		return false;
+	}
+	
+	
+	return true;
+}
+
+function chaine(ch){
+  test = true;
+  ch = ch.toUpperCase();
+  for(i = 0;i<ch.length;i++){
+ 	if(ch.charAt(i) < 'A' || ch.charAt(i) > 'Z'){
+ 		test  = false;
+ 	}
+  }
+  
+  return test;
+}
+
+function chiffres(ch){
+  test = true;
+
+  for(i = 0;i<ch.length;i++){
+ 	if(ch.charAt(i) < '0' || ch.charAt(i) > '9'){
+ 		test  = false;
+ 	}
+  }
+  
+  return test;
+}
+
+</script>
+</head>
+
+<body>
+
+<form method="POST" name=f onsubmit="return verif();" action="supprimer.php">
+	<fieldset style="padding: 2">
+	<legend><b><font size="5">Supprimer un éléve</font></b></legend>
+&nbsp;<table border="0" width="375" height="53">
+		<tr>
+			<td height="53" width="139"><b><font size="5">Numéro:</font></b></td>
+			<td height="53" width="220"><input type="text" name="T1" size="20"></td>
+		</tr>
+	</table>
+	<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="submit" value="Supprimer" name="B1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	<input type="reset" value="Effacer" name="B2"></p>
+	</fieldset></form>
+
+</body>
+
+</html>
