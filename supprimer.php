@@ -21,3 +21,5 @@ if(mysql_num_rows($res1) == 0){
 }
 
 mysql_close();
+
+?>
