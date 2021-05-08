@@ -19,3 +19,5 @@ if(mysql_num_rows($res1) == 0){
 		echo "probléme lors de suppression de l'éléve";
 	}
 }
+
+mysql_close();

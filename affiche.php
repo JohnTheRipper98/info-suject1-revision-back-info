@@ -48,3 +48,7 @@ $res1Garcon = mysql_query($req1Garcon);
 	</tr>
 	<?php } ?>
 </table>
+
+<?php
+mysql_close();
+?>

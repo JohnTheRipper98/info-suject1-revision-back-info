@@ -22,3 +22,5 @@ if(mysql_num_rows($res1) > 0){
 		echo "probléme lors de l'ajout de l'éléve";
 	}
 }
+
+mysql_close();
